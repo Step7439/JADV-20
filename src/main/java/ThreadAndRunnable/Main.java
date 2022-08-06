@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
 
-public class Test {
+public class Main {
     public static void main(String[] args) {
         int t = 0;
         List<String> list = new ArrayList<>();
@@ -19,9 +19,7 @@ public class Test {
         for (Future<String> f : listFuture) {
             try {
                 list.add(f.get());
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            } catch (ExecutionException e) {
+            } catch (InterruptedException | ExecutionException e ) {
                 throw new RuntimeException(e);
             }finally {
                 executorService.shutdown();
