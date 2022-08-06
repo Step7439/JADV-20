@@ -7,7 +7,7 @@ import java.util.concurrent.*;
 
 public class Main {
     public static void main(String[] args) {
-        int t = 0;
+
         List<String> list = new ArrayList<>();
         List<Future<String>> listFuture = new ArrayList<>();
         ExecutorService executorService = Executors.newFixedThreadPool(4);
