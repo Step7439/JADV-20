@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+        int t;
         String[] texts = new String[25];
         List<Thread> list = new ArrayList<>();
 
