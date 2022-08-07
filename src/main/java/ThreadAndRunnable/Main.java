@@ -8,29 +8,28 @@ import java.util.concurrent.*;
 public class Main {
     public static void main(String[] args) {
 
-        List<String> list = new ArrayList<>();
-        List<Future<String>> listFuture = new ArrayList<>();
         ExecutorService executorService = Executors.newFixedThreadPool(4);
-
-        listFuture.add(executorService.submit(new LogicFuture()));
-        listFuture.add(executorService.submit(new LogicFuture()));
-        listFuture.add(executorService.submit(new LogicFuture()));
-        listFuture.add(executorService.submit(new LogicFuture()));
+        List<Future<String>> listFuture = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            LogicFuture logicFuture = new LogicFuture();
+            Future<String> future = executorService.submit(logicFuture);
+            listFuture.add(future);
+        }
         for (Future<String> f : listFuture) {
             try {
-                list.add(f.get());
-            } catch (InterruptedException | ExecutionException e ) {
+                f.get();
+            } catch (InterruptedException | ExecutionException e) {
                 throw new RuntimeException(e);
-            }finally {
+            } finally {
                 executorService.shutdown();
             }
         }
     }
 }
-class LogicFuture implements Callable<String>{
+
+class LogicFuture implements Callable<String> {
     @Override
     public String call() throws Exception {
-
         String[] texts = new String[25];
         for (int i = 0; i < texts.length; i++) {
             texts[i] = generateText("aab", 30_000);
