@@ -4,7 +4,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Main {
-    public static int CALL = 60;
+    public static final int CALL = 60;
 
     public static void main(String[] args) {
         Queue<Integer> ATC = new ConcurrentLinkedQueue<>();
@@ -22,9 +22,9 @@ public class Main {
         }).start();
 
         new Thread(() -> {
-            for (int i = 0; i <= CALL; i++) {
-                if (!ATC.isEmpty()) {
-                    System.out.println("Оператор 1 обработал звонок ! " + " " + ATC.poll());
+            for (int i = 0; i < CALL; i++) {
+                if (ATC.peek() != null) {
+                    System.out.println("Оператор 1 обработал звонок ! " + " " + ATC.remove());
                 }
                 try {
                     Thread.sleep(3000);
@@ -36,9 +36,9 @@ public class Main {
         ).start();
 
         new Thread(() -> {
-            for (int i = 0; i <= CALL; i++) {
-                if (!ATC.isEmpty()) {
-                    System.out.println("Оператор 2 обработал звонок ! " + " " + ATC.poll());
+            for (int i = 0; i < CALL; i++) {
+                if (ATC.peek() != null) {
+                    System.out.println("Оператор 2 обработал звонок ! " + " " + ATC.remove());
                 }
                 try {
                     Thread.sleep(4000);
