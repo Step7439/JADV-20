@@ -24,7 +24,7 @@ public class Main {
         new Thread(() -> {
             for (int i = 0; i < CALL; i++) {
                 if (ATC.peek() != null) {
-                    System.out.println("Оператор 1 обработал звонок ! " + " " + ATC.remove());
+                    System.out.println("Оператор 1 обработал звонок ! " + " " + ATC.poll());
                 }
                 try {
                     Thread.sleep(3000);
@@ -38,7 +38,7 @@ public class Main {
         new Thread(() -> {
             for (int i = 0; i < CALL; i++) {
                 if (ATC.peek() != null) {
-                    System.out.println("Оператор 2 обработал звонок ! " + " " + ATC.remove());
+                    System.out.println("Оператор 2 обработал звонок ! " + " " + ATC.poll());
                 }
                 try {
                     Thread.sleep(4000);
