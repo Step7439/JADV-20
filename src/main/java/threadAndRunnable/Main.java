@@ -1,4 +1,4 @@
-package ThreadAndRunnable;
+package threadAndRunnable;
 
 import java.util.ArrayList;
 import java.util.List;

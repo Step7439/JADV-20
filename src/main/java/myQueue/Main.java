@@ -1,4 +1,4 @@
-package MyQueue;
+package myQueue;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;

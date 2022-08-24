@@ -1,10 +1,7 @@
-package AtomicInteger;
+package atomicInteger;
 
-import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static java.util.Collections.reverse;
 
 public class Main {
     static AtomicInteger count3 = new AtomicInteger();
