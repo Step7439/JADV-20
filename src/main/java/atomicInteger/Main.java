@@ -18,10 +18,13 @@ public class Main {
         new Thread(() -> {
             for (String str3 : texts) {
                 if (str3.length() == 3) {
-                    if (str3.equals(new StringBuilder(str3).reverse().toString())) {
+                    if (str3.equals(new StringBuilder(str3).reverse().toString())) { // ищет одинаковые буквы зеркально
                         count3.incrementAndGet();
                     }
-                    if (str3.charAt(0) == str3.charAt(1) && str3.charAt(1) == str3.charAt(2)) {
+//                    if (str3.charAt(0) == str3.charAt(1) && str3.charAt(1) == str3.charAt(2)) {  // ищет одинаковые буквы "aaa"
+//                        count3.incrementAndGet();
+//                    }
+                    if (str3.chars().allMatch(c -> c == str3.charAt(0))) { // ищет одинаковые буквы "aaa"
                         count3.incrementAndGet();
                     }
                 }
@@ -33,7 +36,10 @@ public class Main {
                     if (str4.equals(new StringBuilder(str4).reverse().toString())) {
                         count4.incrementAndGet();
                     }
-                    if (str4.charAt(0) == str4.charAt(1) && str4.charAt(1) == str4.charAt(2)) {
+//                    if (str4.charAt(0) == str4.charAt(1) && str4.charAt(1) == str4.charAt(2)) {
+//                        count4.incrementAndGet();
+//                    }
+                    if (str4.chars().allMatch(c -> c == str4.charAt(0))) {
                         count4.incrementAndGet();
                     }
                 }
@@ -50,7 +56,10 @@ public class Main {
                     if (str5.equals(new StringBuilder(str5).reverse().toString())) {
                         count5.incrementAndGet();
                     }
-                    if (str5.charAt(0) == str5.charAt(1) && str5.charAt(1) == str5.charAt(2)) {
+//                    if (str5.charAt(0) == str5.charAt(1) && str5.charAt(1) == str5.charAt(2)) {
+//                        count5.incrementAndGet();
+//                    }
+                    if (str5.chars().allMatch(c -> c == str5.charAt(0))) { // ищет одинаковые буквы "aaa"
                         count5.incrementAndGet();
                     }
                 }
